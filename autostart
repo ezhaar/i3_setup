@@ -1,0 +1,8 @@
+# set wallpaper
+nitrogen --restore
+# start dropbox
+/home/izhaar/.dropbox-dist/dropboxd
+# DPMS monitor setting (standby -> suspend -> off) (seconds)
+xset dpms 300 600 900 &
+#notifications
+dunst &

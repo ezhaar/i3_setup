@@ -1,0 +1,1 @@
+/home/izhaar/.i3
