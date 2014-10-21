@@ -128,7 +128,7 @@ bindsym Mod1+Shift+0 move container to workspace 10
 #assign application to workspace
 assign [class="URxvt"] → 2: Terms
 assign [class="i3-senible-terminal" instance="^ncmpcpp$"] → 2: Terms
-assign [class="Firefox"] → 1: web
+#assign [class="Firefox"] → 1: web
 assign [class="google-chrome-stable"] → 1: Web
 #assign [class="vlc"] → 4: misc
 
@@ -168,9 +168,6 @@ bindsym Mod1+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3status
-#}
 
 
 bar {
@@ -188,17 +185,9 @@ bar {
         focused_workspace  #0088CC #0088CC #ffffff
         inactive_workspace #333333 #333333 #888888
         urgent_workspace   #2f343a #900000 #ffffff
-  }
-#    colors {
-#        background #000000
-#        statusline #ffffff
-#
-#        focused_workspace  #ffffff #285577
-#        active_workspace   #ffffff #333333
-#        inactive_workspace #888888 #222222
-#        urgent_workspace   #ffffff #900000
-#    }
+}    
 }
+
 
 # Special Keys
 
@@ -213,6 +202,50 @@ bindsym XF86Display exec /home/izhaar/xrandr_reset
 
 bindsym F12 exec i3lock
 
+
+### THEME
+# Solarized theme
+# black dark/light
+set $color00    #073642
+set $color08    #002B36
+# red dark/light
+set $color01    #DC322F
+set $color09    #CB4B16
+# green dark/light
+set $color02    #859900
+set $color10    #B3CD01
+# yellow dark/light
+set $color03    #B58900
+set $color11    #F4C32F
+# blue dark/light
+set $color04    #268BD2
+set $color12    #30A6F8
+# magenta dark/light
+set $color05    #D33682
+set $color13    #6C71C4
+# cyan dark/light
+set $color06    #00AFFF
+set $color14    #69B3AD
+# white dark/light
+set $color07    #EEE8D5
+set $color15    #FDF6E3
+# background
+set $background #3F3F3F
+
+# Border style
+new_window 1pixel
+new_float  normal
+
+# Client colors
+# colorclass            <border>      <bg>          <text>      <indicator>
+client.focused          $color04      $color04      $color07    $color02
+client.focused_inactive $background   $background   $color07    $color02
+client.unfocused        $background   $background   $color12    $color10
+client.urgent           $background   $background   $color02    $color10
+
+
+
+
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
@@ -223,8 +256,7 @@ bindsym F12 exec i3lock
 # Please remove the following exec line:
 #######################################################################
 exec /home/izhaar/.i3/autostart
-#exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 #exec start-pulseaudio-x11
-#exec /home/izhaar/.dropbox-dist/dropboxd
 exec syndaemon -i 1.0 -K -R &
 exec xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 5 4 6 7 8 9 10 11 12

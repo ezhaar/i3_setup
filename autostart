@@ -1,7 +1,9 @@
 # set wallpaper
 nitrogen --restore
+# start network-manager applet
+nm-applet
 # start dropbox
-/home/izhaar/.dropbox-dist/dropboxd
+#/home/izhaar/.dropbox-dist/dropboxd
 # DPMS monitor setting (standby -> suspend -> off) (seconds)
 xset dpms 300 600 900 &
 #notifications
